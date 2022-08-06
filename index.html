@@ -6,9 +6,13 @@
     <title>Document</title>
 </head>
 <body>
+    <h3>读取json</h3>
     <input type="file" id="file">
     <button id="button">获取内容</button>
-    <div id="users"></div>
+    <div id="users">
+        <h3>用户</h3>
+        <div id="contents"></div>
+    </div>
 </body>
 </html>
 <script> 
@@ -17,10 +21,10 @@
     let button_ele = document.getElementById('button');
     // console.log(file_ele)
     button_ele.onclick = function () {
-        let reader = new FileReader();//新建一个FileReader
-        reader.readAsText(file_ele.files[0], "UTF-8");//读取文件
-        reader.onload = function (evt) { //读取完文件之后会回来这里
-            let fileString = evt.target.result; // 读取文件内容
+        let reader = new FileReader();
+        reader.readAsText(file_ele.files[0], "UTF-8");
+        reader.onload = function (evt) { 
+            let fileString = evt.target.result; 
             let rows = JSON.parse(fileString)["rows"];
             console.log(rows);
             // debugger
