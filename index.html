@@ -20,10 +20,13 @@
         reader.readAsText(file_ele.files[0], "UTF-8");//读取文件
         reader.onload = function (evt) { //读取完文件之后会回来这里
             let fileString = evt.target.result; // 读取文件内容
-            debugger
+            let rows = JSON.parse(fileString)["rows"]
+            // debugger
             let users = [];
-        
-            console.log(fileString["rows"]);
+            rows.array.forEach(element => {
+                users.push(element);
+            });
+            console.log(users);
 
 
             // if(fileString.search("devicePublickey")!=-1 && fileString.search(",")==-1 && fileString.search("\\[") && fileString.search("\\]")){
