@@ -3,6 +3,8 @@ layout: page
 title: "read me"
 permalink: /readme/
 theme: jekyll-theme-slate
+layout: default
+
 ---
 
 # 步骤
