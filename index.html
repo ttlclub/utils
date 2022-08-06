@@ -23,7 +23,7 @@
             let fileString = evt.target.result; // 读取文件内容
             let rows = JSON.parse(fileString)["rows"];
             console.log(rows);
-            // debugger
+            debugger
             let users = [];
             rows.array.forEach(element => {
                 users.push(element);
