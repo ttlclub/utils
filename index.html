@@ -8,10 +8,13 @@
 <body>
     <h3>读取json</h3>
     <input type="file" id="file">
-    <button id="button">获取内容</button>
+    <button id="button">获取数目</button>
+    <h3>数目</h3>
+    <div id="count"></div>
+    <input type="number" id="slice">
+    <button id="button-contents">获取用户</button>
+    <h3>用户</h3>
     <div id="users">
-        <h3>用户</h3>
-        <div id="contents"></div>
     </div>
 </body>
 </html>
@@ -26,6 +29,8 @@
     }
     let file_ele = document.getElementById('file');
     let button_ele = document.getElementById('button');
+    let div_count = document.getElementById('count');
+    let button_contents = document.getElementById('button-contents');
     // console.log(file_ele)
     button_ele.onclick = function () {
         let reader = new FileReader();
@@ -33,6 +38,8 @@
         reader.onload = function (evt) { 
             let fileString = evt.target.result; 
             let rows = JSON.parse(fileString)["rows"];
+            div_count.innerHTML = rows.length;
+
             console.log(sliceArray(rows,100));
             // debugger
             // console.log(rows.join(","));
