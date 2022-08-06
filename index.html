@@ -63,7 +63,7 @@
             let rows = JSON.parse(fileString)["rows"];
             let user_contents = "";
             console.log(count.value);
-            console.log(sliceArray(rows,count.value));
+            console.log(sliceArray(rows,int(count.value)));
             sliceArray(rows,count.value).forEach(element => {
                 // debugger
                 user_contents = user_contents + element.join(",");
