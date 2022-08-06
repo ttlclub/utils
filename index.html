@@ -65,11 +65,15 @@
             sliceArray(rows,parseInt(count.value)).forEach(element => {
                 // debugger
                 user_contents = user_contents + element.join(",");
-                user_contents = user_contents + " \\n ";
-                user_contents = user_contents + "--------------------------------- \\n ";
+                user_contents = user_contents + "\n ";
+                user_contents = user_contents + "---------------------------------\n ";
                 // console.log(element);
                 
             });
+            while (user_contents.indexOf("\\n") >= 0) 
+            { 
+                var str2 = str1.replace("\\n", " \n "); 
+            } 
 
             div_users.innerHTML = user_contents;
 
