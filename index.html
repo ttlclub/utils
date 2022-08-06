@@ -17,6 +17,13 @@
 </html>
 <script> 
 
+    function sliceArray (arr, size) {
+    var arr2 = [];
+    for(var i=0; i<arr.length; i=i+size){
+        arr2.push(arr.slice(i,i+size));
+    }
+    return arr2;
+    }
     let file_ele = document.getElementById('file');
     let button_ele = document.getElementById('button');
     // console.log(file_ele)
@@ -26,10 +33,10 @@
         reader.onload = function (evt) { 
             let fileString = evt.target.result; 
             let rows = JSON.parse(fileString)["rows"];
-            console.log(rows);
+            console.log(sliceArray(rows,100));
             // debugger
-            console.log(rows.join(","));
-            let users = [];
+            // console.log(rows.join(","));
+            
         }
     };
 </script>
