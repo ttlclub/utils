@@ -55,6 +55,9 @@
         let reader = new FileReader();
         let count = document.getElementById("slice")
         reader.readAsText(file_ele.files[0], "UTF-8");
+        if(!reader || !count) {
+            return;
+        }
         reader.onload = function (evt) { 
             let fileString = evt.target.result; 
             let rows = JSON.parse(fileString)["rows"];
@@ -64,7 +67,7 @@
                 user_contents = user_contents + element.join(",");
                 user_contents = user_contents + "\n";
                 user_contents = user_contents + "---------------------------------\n";
-                //console.log(user_contents);
+                console.log(element);
                 
             });
 
