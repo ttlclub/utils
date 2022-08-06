@@ -24,22 +24,8 @@
             let rows = JSON.parse(fileString)["rows"];
             console.log(rows);
             // debugger
+            console.log(rows.join(","));
             let users = [];
-            rows.forEach(element => {
-                users.push(element);
-            });
-            console.log(users);
-
-
-            // if(fileString.search("devicePublickey")!=-1 && fileString.search(",")==-1 && fileString.search("\\[") && fileString.search("\\]")){
-            //     console.log("in3-");
-            //     alert("正确");
-            //     return true;
-            // }else{
-            //     console.log("in4-");
-            //     alert("不符合要求");
-            // }
-            // $("#myShow").append(fileString);
         }
     };
 </script>
