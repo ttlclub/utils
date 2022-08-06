@@ -22,6 +22,7 @@
         reader.onload = function (evt) { //读取完文件之后会回来这里
             let fileString = evt.target.result; // 读取文件内容
             let rows = JSON.parse(fileString)["rows"];
+            console.log(rows);
             // debugger
             let users = [];
             rows.array.forEach(element => {
