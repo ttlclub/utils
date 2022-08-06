@@ -62,14 +62,12 @@
             let fileString = evt.target.result; 
             let rows = JSON.parse(fileString)["rows"];
             let user_contents = "";
-            console.log(count.value);
-            console.log(sliceArray(rows,parseInt(count.value)));
-            sliceArray(rows,count.value).forEach(element => {
+            sliceArray(rows,parseInt(count.value)).forEach(element => {
                 // debugger
                 user_contents = user_contents + element.join(",");
                 user_contents = user_contents + "\n";
                 user_contents = user_contents + "---------------------------------\n";
-                console.log(element);
+                // console.log(element);
                 
             });
 
