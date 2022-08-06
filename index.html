@@ -6,16 +6,23 @@
     <title>Document</title>
 </head>
 <body>
-    <h3>读取json</h3>
-    <input type="file" id="file">
-    <button id="button">获取数目</button>
-    <h3>数目</h3>
-    <div id="count"></div>
-    <input type="number" id="slice">
-    <button id="button-contents">获取用户</button>
-    <h3>用户</h3>
-    <div id="users">
-    </div>
+    <section>
+        <h3>读取json</h3>
+        <div><p>请上传json文件，点击获取数目</p></div>
+        <input type="file" id="file">
+        <button id="button">获取数目</button>
+        <h3>数目</h3>
+        <div id="count"></div>
+    </section>
+    <secction>
+        <div><p>请输入要切分的大小，比如一份十个用户，就输入10。输入完毕后，请点击获取用户</p></div>
+        <input type="number" id="slice">
+        <button id="button-contents">获取用户</button>
+        <h3>用户</h3>
+        <div id="users">
+        </div>
+    </secction>
+    
 </body>
 </html>
 <script> 
@@ -28,11 +35,11 @@
     return arr2;
     }
     let file_ele = document.getElementById('file');
-    let button_ele = document.getElementById('button');
+    let button_count = document.getElementById('button');
     let div_count = document.getElementById('count');
     let button_contents = document.getElementById('button-contents');
-    // console.log(file_ele)
-    button_ele.onclick = function () {
+    let div_users = document.getElementById('users');
+    button_count.onclick = function () {
         let reader = new FileReader();
         reader.readAsText(file_ele.files[0], "UTF-8");
         reader.onload = function (evt) { 
@@ -41,6 +48,30 @@
             div_count.innerHTML = rows.length;
 
             console.log(sliceArray(rows,100));
+            // debugger
+            // console.log(rows.join(","));
+            
+        }
+    };
+
+    button_contents.onclick = function () {
+        let reader = new FileReader();
+        let count = document.getElementById("slice")
+        reader.readAsText(file_ele.files[0], "UTF-8");
+        reader.onload = function (evt) { 
+            let fileString = evt.target.result; 
+            let rows = JSON.parse(fileString)["rows"];
+            let user_contents = "";
+            sliceArray(rows,100).forEach(element => {
+                user_contents.concat(element.join(","));
+                user_contents.concat("\n\n");
+                
+            });
+
+            // div_users.innerHTML = rows.length;
+            div_users.innerHTML = user_contents;
+
+            // console.log(sliceArray(rows,100));
             // debugger
             // console.log(rows.join(","));
             
