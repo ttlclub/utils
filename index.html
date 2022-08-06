@@ -6,7 +6,7 @@
     <title>Document</title>
 </head>
 <body>
-    <section>
+    <section style="margin:2em;">
         <h3>读取json</h3>
         <div><p>请上传json文件，点击获取数目</p></div>
         <input type="file" id="file">
@@ -14,12 +14,12 @@
         <h3>数目</h3>
         <div id="count"></div>
     </section>
-    <secction>
+    <secction style="margin:2em;">
         <div><p>请输入要切分的大小，比如一份十个用户，就输入10。输入完毕后，请点击获取用户</p></div>
         <input type="number" id="slice">
         <button id="button-contents">获取用户</button>
         <h3>用户</h3>
-        <div id="users">
+        <div id="users" style="word-wrap: break-word;  width: -webkit-fill-available;">
         </div>
     </secction>
     
@@ -62,7 +62,7 @@
             let fileString = evt.target.result; 
             let rows = JSON.parse(fileString)["rows"];
             let user_contents = "";
-            sliceArray(rows,100).forEach(element => {
+            sliceArray(rows,count.value).forEach(element => {
                 // debugger
                 user_contents = user_contents + element.join(",");
                 user_contents = user_contents + "\n\n\n\n";
