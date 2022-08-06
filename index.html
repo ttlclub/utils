@@ -63,6 +63,7 @@
             let rows = JSON.parse(fileString)["rows"];
             let user_contents = "";
             sliceArray(rows,100).forEach(element => {
+                debugger
                 user_contents.concat(element.join(","));
                 user_contents.concat("\n\n");
                 console.log(user_contents);
