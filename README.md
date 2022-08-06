@@ -2,6 +2,7 @@
 layout: page
 title: "read me"
 permalink: /readme/
+theme: jekyll-theme-slate
 ---
 
 # 步骤
