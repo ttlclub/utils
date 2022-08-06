@@ -1,5 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <input type="file" id="file">
+    <button id="button">获取内容</button>
+</body>
+</html>
+<script> 
 
-<h1>
-    hi
-</h1>
+    var file_ele = document.getElementById('file');
+    var button_ele = document.getElementById('button');
+    // console.log(file_ele)
+    button_ele.onclick = function () {
+        var reader = new FileReader();//新建一个FileReader
+        reader.readAsText(file_ele.files[0], "UTF-8");//读取文件
+        reader.onload = function (evt) { //读取完文件之后会回来这里
+            var fileString = evt.target.result; // 读取文件内容
+            console.log(fileString);
 
+            // if(fileString.search("devicePublickey")!=-1 && fileString.search(",")==-1 && fileString.search("\\[") && fileString.search("\\]")){
+            //     console.log("in3-");
+            //     alert("正确");
+            //     return true;
+            // }else{
+            //     console.log("in4-");
+            //     alert("不符合要求");
+            // }
+            // $("#myShow").append(fileString);
+        }
+    };
+</script>
