@@ -28,11 +28,11 @@
 <script> 
 
     function sliceArray (arr, size) {
-    var arr2 = [];
-    for(var i=0; i<arr.length; i=i+size){
-        arr2.push(arr.slice(i,i+size));
-    }
-    return arr2;
+        var arr2 = [];
+        for(var i=0; i<arr.length; i=i+size){
+            arr2.push(arr.slice(i,i+size));
+        }
+        return arr2;
     }
     let file_ele = document.getElementById('file');
     let button_count = document.getElementById('button');
@@ -62,6 +62,8 @@
             let fileString = evt.target.result; 
             let rows = JSON.parse(fileString)["rows"];
             let user_contents = "";
+            console.log(count.value);
+            console.log(sliceArray(rows,10));
             sliceArray(rows,count.value).forEach(element => {
                 // debugger
                 user_contents = user_contents + element.join(",");
