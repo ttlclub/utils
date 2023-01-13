@@ -71,12 +71,14 @@ layout: default
             let fileString = evt.target.result; 
             let rows = JSON.parse(fileString)["rows"];
             let user_contents = "";
-            console.log(rows);
+            let new_rows = [];
+            // console.log(rows);
             rows.forEach(e => {
-                console.log(e);
+                // console.log(e);
                 e = e[0];
+                new_rows = new_rows.append(e);
             });
-            sliceArray(rows,parseInt(count.value)).forEach(element => {
+            sliceArray(new_rows,parseInt(count.value)).forEach(element => {
                 // debugger
                 user_contents = user_contents + element.join(",");
                 user_contents = user_contents + "<br/>";
