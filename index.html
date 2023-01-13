@@ -71,6 +71,7 @@ layout: default
             let fileString = evt.target.result; 
             let rows = JSON.parse(fileString)["rows"];
             let user_contents = "";
+            console.log(rows);
             rows.forEach(e => {
                 e = e[0];
             });
