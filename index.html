@@ -73,6 +73,7 @@ layout: default
             let user_contents = "";
             sliceArray(rows,parseInt(count.value)).forEach(element => {
                 // debugger
+                element = element[0]
                 user_contents = user_contents + element.join(",");
                 user_contents = user_contents + "<br/>";
                 user_contents = user_contents + "--------------------------------- <br/>";
